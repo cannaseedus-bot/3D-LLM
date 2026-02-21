@@ -1,0 +1,14 @@
+{
+  "@id": "gpu-task-001",
+  "@op": "tensor.mul",
+  "@input": {
+    "a": [1, 2, 3, 4],
+    "b": [10, 20, 30, 40]
+  },
+  "@constraints": {
+    "deterministic": true,
+    "device": "gpu",
+    "max_tokens": 1024
+  },
+  "@meta": {}
+}

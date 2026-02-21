@@ -1,0 +1,10 @@
+{
+  "name": "3d-llm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/runtime/verifier.js && node --check src/runtime/scxq2.js && node --check src/runtime/execute.js && node --check src/ops/core.ops.js && node --check src/tensor/tensor.ops.js && node --check src/tensor/svg3d.loader.js && node --check src/cluster/collapse.js && node --check src/cluster/node.js && node --check src/runtime/executor.webgpu.js && node --check src/runtime/executor.webgl.js",
+    "test:smoke": "node scripts/smoke.mjs"
+  }
+}
