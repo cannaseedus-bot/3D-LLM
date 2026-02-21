@@ -1,0 +1,12 @@
+{
+  "@id": "task-001",
+  "@op": "ngram.count",
+  "@input": {
+    "tokens": ["json", "runtime", "json", "cluster"]
+  },
+  "@constraints": {
+    "deterministic": true,
+    "max_tokens": 1000
+  },
+  "@meta": {}
+}

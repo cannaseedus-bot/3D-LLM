@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://3d-llm.local/tensor.schema.json",
+  "title": "3D-LLM tensor task",
+  "type": "object",
+  "required": ["@id", "@op", "@tensor", "@input", "@constraints"],
+  "properties": {
+    "@id": { "type": "string" },
+    "@op": {
+      "type": "string",
+      "enum": [
+        "tensor.add",
+        "tensor.mul",
+        "tensor.matmul",
+        "tensor.reduce.sum",
+        "tensor.norm.l2"
+      ]
+    },
+    "@tensor": {
+      "type": "object",
+      "required": ["rank", "shape", "dtype", "layout"],
+      "properties": {
+        "rank": { "type": "integer", "minimum": 1 },
+        "shape": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1 },
+          "minItems": 1
+        },
+        "dtype": { "type": "string", "enum": ["f32"] },
+        "layout": { "type": "string", "enum": ["row-major"] }
+      },
+      "additionalProperties": false
+    },
+    "@input": { "type": "object" },
+    "@constraints": {
+      "type": "object",
+      "required": ["deterministic", "max_elements"],
+      "properties": {
+        "deterministic": { "const": true },
+        "max_elements": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
